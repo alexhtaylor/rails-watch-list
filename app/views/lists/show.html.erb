@@ -1,10 +1,10 @@
 <center>
 <h1><%= @list.name %></h1>
-<div>
-    <ul class="list-unstyled">
+<div class='form'>
+    <ul class="list">
       <% @list.bookmarks.each do |bookmark| %>
-      <li><%= bookmark.movie.title %></li>
-      <ul>
+      <li class="title"><%= bookmark.movie.title %></li>
+      <ul class='list'>
         <li><%= bookmark.movie.overview %></li>
       </ul>
       <%= bookmark.comment %>
@@ -14,7 +14,12 @@
                   data: { confirm: "Are you sure?" } %>
       <% end %>
     </ul>
+    <% if @list.photo.attached? %>
+      <%= cl_image_tag(@list.photo.key) %>
+      <% else %>
+      <img src="https://images.unsplash.com/photo-1554755209-85e44182e019?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" alt="">
+      <% end %>
   </div>
 <p><%= link_to "add a film to this list", new_list_bookmark_path(@list) %></p>
-<p><%= link_to "go back", lists_path  %></p>
+<p><%= link_to "go back", root_path  %></p>
 </center>
