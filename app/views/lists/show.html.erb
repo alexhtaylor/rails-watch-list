@@ -7,8 +7,8 @@
       <ul>
         <li><%= bookmark.movie.overview %></li>
       </ul>
-      <%= bookmark.comment %>      <%= link_to "Remove",
-                  list_bookmark_path(@list, bookmark.id),
+      <%= link_to "Remove",
+                  bookmark_path(bookmark),
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
       <% end %>
