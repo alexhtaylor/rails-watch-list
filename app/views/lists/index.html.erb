@@ -1,13 +1,13 @@
 <center><table>
   <thead>
     <tr>
-      <th>Lists</th>
+      <th class="header">Lists</th>
     </tr>
   </thead>
   <tbody>
     <% @lists.each do |list| %>
       <tr>
-        <td><%= list.name %></td>
+        <td class="red"><%= list.name %></td>
         <td><%= link_to "details", list_path(list) %></td>
       </tr>
     <% end %>
